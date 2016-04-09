@@ -1,2 +1,43 @@
 @import 'ember-paper';
 @import 'grocery-fun/variables';
+@import 'grocery-fun/overrides.scss';
+
+
+img.logo {
+  width: 150px;
+  margin-left: 25px;
+}
+
+.toolbar {
+  background-color: $blue;
+}
+
+.product-list {
+  font-weight: 500;
+  font-size: 1.1em;
+  .price {
+    max-width: 12%;
+  }
+
+  .product-info {
+    margin-left: 70px;
+    position: relative;
+  }
+
+}
+
+.shop-title {
+  margin-left: 25px;
+  color: $blue;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+.sale-banner {
+  color: $pink;
+  font-size: .75em;
+  font-weight: normal;
+  position: absolute;
+  left: 0px;
+  top: 25px;
+}

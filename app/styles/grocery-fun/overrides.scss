@@ -1,0 +1,21 @@
+md-list-item .md-secondary-container,
+md-list-item .md-secondary, md-list-item .md-list-item-inner .md-secondary-container,
+md-list-item .md-list-item-inner .md-secondary {
+  margin-right: 16px;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+}
+
+md-list-item .md-list-item-inner {
+  min-height: 80px;
+}
+
+md-list md-list-item:nth-child(even){
+   background-color: $gray4;
+}
+
+md-list-item button.md-button.md-secondary-container,
+md-list-item .md-list-item-inner button.md-button.md-secondary-container {
+  background-color: $green;
+}
