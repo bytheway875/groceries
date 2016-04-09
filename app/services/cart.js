@@ -2,8 +2,7 @@ import Ember from 'ember';
 const {
   Service,
   computed,
-  inject,
-  getOwner } = Ember
+  inject } = Ember;
 
 export default Service.extend({
   cartItems: [],
@@ -11,13 +10,11 @@ export default Service.extend({
   store: inject.service(),
   total: computed('cartItems.@each.total', function(){
     let totals = this.get('cartItems').mapBy('total');
-    return totals.reduce((a, b) => a + b, 0)
-
+    return totals.reduce((a, b) => a + b, 0);
   }),
 
   init() {
     this._super(...arguments);
-    // this.set('cartItems', );
   },
 
   add(item) {
@@ -25,13 +22,13 @@ export default Service.extend({
     if(existingItem){
       existingItem.incrementProperty('quantity', 1);
     } else {
-      var newItem = this.get('store').createRecord('cart-item', { product: item, quantity: 1 })
+      var newItem = this.get('store').createRecord('cart-item', { product: item, quantity: 1 });
       this.get('cartItems').pushObject(newItem);
     }
   },
 
   decrement(item) {
-    item.decrementProperty('quantity', 1)
+    item.decrementProperty('quantity', 1);
     if(item.get('quantity') === 0){
       this.get('cartItems').removeObject(item);
     }
@@ -42,31 +39,6 @@ export default Service.extend({
 
   empty() {
     this.get('cartItems').setObjects([]);
-  },
+  }
 
 });
-
-
-
-// pushItem(item) {
-//     let cartItem;
-//
-//     if (item.toCartItem) {
-//       cartItem = item.toCartItem();
-//     } else {
-//       const CartItem = this.container.lookupFactory('model:cart-item');
-//       cartItem = CartItem.create(item);
-//     }
-//
-//     let foundCartItem = this.findBy('guid', get(cartItem, 'guid'));
-//
-//     if (!foundCartItem) {
-//       this.pushObject(cartItem);
-//     }
-//
-//     cartItem = foundCartItem || cartItem;
-//
-//     if (get(cartItem, 'increment') || get(cartItem, 'quantity') === 0) {
-//       cartItem.incrementProperty('quantity');
-//     }
-//   },

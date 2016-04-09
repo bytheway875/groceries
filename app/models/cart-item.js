@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-import Ember from 'ember'
+import Ember from 'ember';
 
 export default DS.Model.extend({
   quantity: DS.attr('number', { defaultValue: 0 }),
@@ -16,7 +16,7 @@ export default DS.Model.extend({
   }),
   total: Ember.computed('currentOffer', 'product.regularPrice', 'quantity', function(){
     if(this.get('isBogo')){
-      if(this.get('quantity') == 1){ return this.get('originalTotal') };
+      if(this.get('quantity') === 1){ return this.get('originalTotal'); }
 
       let remainder = this.get('quantity') % 2;
       let bogoEligible = this.get('quantity') - remainder;
