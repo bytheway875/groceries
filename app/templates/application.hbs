@@ -1,3 +1,11 @@
-<h2 id="title">Welcome to Ember</h2>
+{{#paper-nav-container}}
+  <div layout="column" tabindex="-1" role="main" class="body-content" flex>
+    {{#paper-toolbar}}
+      <div class="toolbar">
+        <img src="../images/logo.png">
+      </div>
+    {{/paper-toolbar}}
+    {{outlet}}
 
-{{outlet}}
+  </div>
+{{/paper-nav-container}}
