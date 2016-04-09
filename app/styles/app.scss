@@ -33,6 +33,14 @@ img.logo {
   font-weight: normal;
 }
 
+.cart-title {
+  color: $blue;
+  font-weight: normal;
+  text-align: center;
+  font-size: 1.25em;
+  padding: 25px;
+}
+
 .sale-banner {
   color: $pink;
   font-size: .75em;
@@ -40,4 +48,78 @@ img.logo {
   position: absolute;
   left: 0px;
   top: 25px;
+}
+.cart {
+  @media(min-width:600px){
+    max-width: 35%;
+    margin: 50px;
+  }
+}
+.shopping-cart {
+  @media(min-width:600px){
+    margin-left: 20px;
+    margin-right: 20px;
+    // padding: 20px;
+  }
+  background-color: $gray4;
+  height: 100%;
+
+  .item {
+    margin: 10px;
+    line-height: 30px;
+  }
+  .quantity {
+    border-bottom: 1px dotted $gray2;
+    max-width: 25px;
+    text-align: center;
+  }
+  .price {
+    color: $green;
+    font-weight: 500;
+    text-align: right;
+    margin-right: 10px;
+    .original-price {
+      text-decoration: line-through;
+      // width: 50%;
+      display: inline-block;
+      color: $gray2;
+      font-weight: 400;
+    }
+    .current-price {
+      display: inline-block;
+      width: 30%;
+    }
+  }
+  .total {
+    margin: 50px auto;
+    color: $green;
+    font-size: 3em;
+    border-radius: 50%;
+    height: 225px;
+    width: 225px;
+    line-height: 225px;
+    text-align:center;
+    border: 10px solid $green;
+  }
+  .actions {
+    max-width: 65px;
+    display: inherit;
+    margin: 0 auto;
+    button {
+      padding:0 5px 0 0;
+      md-icon {
+        &:hover {
+          color: $pink;
+        }
+      }
+    }
+  }
+}
+
+.cart-reset {
+  color: white;
+  background-color: $pink;
+  padding: 10px 50px 10px 50px;
+  border-radius: 50px;
+  float: right;
 }

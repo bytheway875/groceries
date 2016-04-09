@@ -5,7 +5,7 @@
       {{#paper-list}}
         {{#each model as |product|}}
           {{#paper-item class="product"}}
-              {{#paper-button icon-button=true}}{{paper-icon "add"}}{{/paper-button}}
+              {{#paper-button icon-button=true action=(action "addToCart" product)}}{{paper-icon "add"}}{{/paper-button}}
               <div class="product-info" flex>
                 {{product.name}} - {{product.productCode}}
                 {{sale-banner currentOffer=product.currentOffer}}
@@ -15,9 +15,12 @@
           {{/paper-item}}
         {{/each}}
       {{/paper-list}}
+      {{#if cart.cartItems}}
+        <button class="cart-reset" {{action "emptyCart"}}>Reset Cart</button>
+      {{/if}}
     </div>
     <div class="cart" flex>
-      {{outlet}}
+      {{shopping-cart}}
     </div>
   </div>
 {{/paper-content}}

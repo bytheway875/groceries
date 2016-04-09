@@ -1,0 +1,27 @@
+<h3 class="title cart-title">Cart</h3>
+{{#if cart.cartItems}}
+  {{#each cart.cartItems as |item|}}
+    <div class="item" layout="row">
+      <div class="actions" flex>
+        <button {{action "removeItem" item}}>{{paper-icon "delete"}}</button>
+        <button {{action "decrementItem" item }}>{{paper-icon "remove-circle"}}</button>
+      </div>
+      <div flex>
+        {{item.productCode}}- {{item.product.name}}
+      </div>
+      <div class="quantity" flex>
+        {{item.quantity}}
+      </div>
+      <div class="price" flex>
+        {{item-total item=item}}
+      </div>
+
+    </div>
+
+  {{/each}}
+  <div class="total">
+    {{money-format cart.total}}
+  </div>
+{{else}}
+  <p style="text-align:center">There's nothing in your cart yet. Start shopping!</p>
+{{/if}}

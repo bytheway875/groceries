@@ -1,0 +1,6 @@
+<span class="original-price">
+  {{#if item.savings}}
+    {{money-format item.originalTotal}}
+  {{/if}}
+</span>
+<span class="current-price">{{money-format item.total}}</span>
